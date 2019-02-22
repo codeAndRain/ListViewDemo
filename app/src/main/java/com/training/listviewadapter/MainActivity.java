@@ -4,19 +4,20 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends ListActivity {
 
-    private TextView selectedItemTextView;
+    private EditText selectedItemEditText;
+    private Button addButton;
 
-    private static final String[] items = {"lorem", "ipsum", "dolor",
-            "sit", "amet",
-            "consectetuer", "adipiscing", "elit", "morbi", "vel",
-            "ligula", "vitae", "arcu", "aliquet", "mollis",
-            "etiam", "vel", "erat", "placerat", "ante",
-            "porttitor", "sodales", "pellentesque", "augue", "purus"};
+    private List<String> items = new ArrayList<>();
+    private ArrayAdapter<String> adapter;
 
 
     @Override
@@ -24,15 +25,33 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        selectedItemTextView = findViewById(R.id.section_text_view);
+        selectedItemEditText = findViewById(R.id.section_text_view);
 
-        setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
+        addButton = findViewById(R.id.add_button);
 
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items);
+        setListAdapter(adapter);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = selectedItemEditText.getText().toString();
+                if (!text.isEmpty()) {
+                    onAddClicked(text);
+                }
+            }
+        });
+    }
+
+    private void onAddClicked(String text) {
+        items.add(text);
+        adapter.notifyDataSetChanged();
+        selectedItemEditText.setText("");
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        String selectedItem = items[position];
-        selectedItemTextView.setText(selectedItem);
+            String selectedItem = items.get(position);
+            selectedItemEditText.setText(selectedItem);
     }
 }
