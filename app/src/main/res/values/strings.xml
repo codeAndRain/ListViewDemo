@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">ListViewAdapter</string>
-    <string name="Add">add</string>
+    <string name="add">add</string>
+    <string name="name_TextView">Name</string>
+    <string name="age_TextView">Age</string>
+    <string name="gender_TextView">Gender</string>
+    <string name="reset_button">Reset</string>
+    <string name="reset">Reset</string>
 </resources>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="general_list_activity_margin">20dp</dimen>
+    <dimen name="textSize">22sp</dimen>
+    <dimen name="margin">20dp</dimen>
+    <dimen name="textSize_list_layout">22sp</dimen>
 </resources>

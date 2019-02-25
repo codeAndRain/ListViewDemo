@@ -11,6 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/general_list_activity_margin"
+        android:layout_marginRight="@dimen/general_list_activity_margin"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="@dimen/textSize_list_layout"
         tools:text="This is a simple text" />
 
     <TextView
@@ -18,6 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/general_list_activity_margin"
+        android:layout_marginRight="@dimen/general_list_activity_margin"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="@dimen/textSize_list_layout"
         tools:text="This is a simple text" />
 
     <TextView
@@ -25,6 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/general_list_activity_margin"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="@dimen/textSize_list_layout"
         tools:text="This is a simple text" />
 
 </LinearLayout>
