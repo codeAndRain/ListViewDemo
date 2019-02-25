@@ -11,9 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65e82885-c151-4f31-b978-bc664e2e3d46" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/PersonAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/PersonAdapter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,27 +37,27 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="6" />
+          <entry key="class" value="7" />
           <entry key="java" value="4" />
           <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="6" />
+          <entry key="CLASS" value="7" />
           <entry key="JAVA" value="4" />
           <entry key="XML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1610" />
+          <entry key="java" value="1908" />
           <entry key="xml" value="259" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1610" />
+          <entry key="JAVA" value="1908" />
           <entry key="XML" value="259" />
         </counts>
       </usages-collector>
@@ -69,11 +68,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="47" column="48" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="48" />
+            <state relative-caret-position="480">
+              <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
               <folding>
-                <element signature="e#945#1238#0" expanded="true" />
-                <element signature="e#1237#1238#0" expanded="true" />
+                <element signature="e#930#1081#0" expanded="true" />
+                <element signature="e#1080#1081#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,10 +97,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/PersonAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+            <state relative-caret-position="297">
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-28/android.jar!/android/view/View.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="2492" column="18" selection-start-line="2492" selection-start-column="18" selection-end-line="2492" selection-end-column="18" />
+              <folding>
+                <element signature="e#71172#71173#0" expanded="true" />
+                <element signature="e#71223#71224#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,8 +180,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/Person.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/PersonAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/PersonAdapter.java" />
       </list>
     </option>
   </component>
@@ -426,17 +438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-28/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="2469" column="36" selection-start-line="2469" selection-start-column="36" selection-end-line="2469" selection-end-column="36" />
-          <folding>
-            <element signature="e#70629#70630#0" expanded="true" />
-            <element signature="e#70680#70681#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -479,21 +480,32 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-28/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="2492" column="18" selection-start-line="2492" selection-start-column="18" selection-end-line="2492" selection-end-column="18" />
+          <folding>
+            <element signature="e#71172#71173#0" expanded="true" />
+            <element signature="e#71223#71224#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="47" column="48" selection-start-line="47" selection-start-column="43" selection-end-line="47" selection-end-column="48" />
+        <state relative-caret-position="480">
+          <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
           <folding>
-            <element signature="e#945#1238#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
+            <element signature="e#930#1081#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/training/listviewadapter/PersonAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="297">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
