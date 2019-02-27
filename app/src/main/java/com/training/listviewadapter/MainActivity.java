@@ -18,6 +18,7 @@ public class MainActivity extends ListActivity {
     private EditText gender_editText;
     private Button addButton;
     private Button resetButton;
+    private Button removeButton;
 
     private List<Person> personList = new ArrayList<>();
     private PersonAdapter adapter;
@@ -33,6 +34,7 @@ public class MainActivity extends ListActivity {
         gender_editText = findViewById(R.id.gender_Edit_Text);
         addButton = findViewById(R.id.add_button);
         resetButton = findViewById(R.id.reset_button);
+        removeButton = findViewById(R.id.remove_button);
 
         adapter = new PersonAdapter(this, personList);
         setListAdapter(adapter);
@@ -54,6 +56,16 @@ public class MainActivity extends ListActivity {
         });
 
 
+        removeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int count = personList.size();
+                adapter.remove(personList.get(count - 1));
+//                personList.remove(0);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
     }
 
     private void onAddClicked() {
@@ -64,15 +76,15 @@ public class MainActivity extends ListActivity {
 
         String regexStr = "^[0-9]*$";
 
-        if(name.isEmpty() && gender.isEmpty() && age_editText.getText().toString().isEmpty()){
+        if (name.isEmpty() && gender.isEmpty() && age_editText.getText().toString().isEmpty()) {
             Toast.makeText(this, "Please enter Name, Age and Gender", Toast.LENGTH_LONG).show();
-        }else if(name.isEmpty()){
+        } else if (name.isEmpty()) {
             Toast.makeText(this, "Please Enter Name", Toast.LENGTH_LONG).show();
-        }else if(age_editText.getText().toString().isEmpty() || !age_editText.getText().toString().trim().matches(regexStr)){
+        } else if (age_editText.getText().toString().isEmpty() || !age_editText.getText().toString().trim().matches(regexStr)) {
             Toast.makeText(this, "Please enter Age", Toast.LENGTH_LONG).show();
-        }else if(gender.isEmpty()){
+        } else if (gender.isEmpty()) {
             Toast.makeText(this, "Please enter Gender", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             age = Integer.parseInt(age_editText.getText().toString());
             personList.add(new Person(name, age, gender));
             adapter.notifyDataSetChanged();
@@ -88,15 +100,4 @@ public class MainActivity extends ListActivity {
         Toast.makeText(this, person.getName() + " selected.", Toast.LENGTH_SHORT).show();
     }
 
-//    private List<Person> getPersons() {
-//        List<Person> persons = new ArrayList<>();
-//        persons.add(new Person("Anthony Jones", 22, "M"));
-//        persons.add(new Person("Anthony Jones", 22, "M"));
-//        persons.add(new Person("Anthony Jones", 22, "M"));
-//        persons.add(new Person("Anthony Jones", 22, "M"));
-//        persons.add(new Person("Anthony Jones", 22, "M"));
-//        persons.add(new Person("Anthony Jones", 22, "M"));
-//
-//        return persons;
-//    }
 }

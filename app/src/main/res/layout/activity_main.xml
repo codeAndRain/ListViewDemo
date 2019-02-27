@@ -104,13 +104,26 @@
             android:layout_weight="0.5"
             android:layout_gravity="center" />
 
-
+        <Button
+            android:id="@+id/remove_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/textSize"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:background="@color/colorPrimary"
+            android:text="@string/remove_button"
+            android:layout_weight="0.5"
+            android:layout_gravity="center" />
 
     </LinearLayout>
+
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:divider="#FFCC00"
+        android:dividerHeight="3dp"
         android:layout_marginTop="@dimen/general_list_activity_margin" />
 
 </LinearLayout>
