@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
-            tools:text="Text" />
+            tools:text="@string/tools_text"/>
 
     </LinearLayout>
 
@@ -46,8 +46,9 @@
             android:id="@+id/age-Edit_Text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:layout_marginStart="@android:dimen/app_icon_size"
-            tools:text="Text" />
+            tools:text="@string/tools_text" />
 
     </LinearLayout>
 
@@ -69,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
-            tools:text="Text" />
+            tools:text="@string/tools_text" />
 
     </LinearLayout>
 

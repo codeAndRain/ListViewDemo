@@ -1,6 +1,7 @@
 package com.training.listviewadapter;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends ListActivity implements View.OnClickListener {
 
     private EditText name_editText;
     private EditText age_editText;
@@ -39,59 +40,55 @@ public class MainActivity extends ListActivity {
         adapter = new PersonAdapter(this, personList);
         setListAdapter(adapter);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onAddClicked();
-            }
-        });
-
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                name_editText.setText("");
-                age_editText.setText("");
-                gender_editText.setText("");
-            }
-        });
-
-
-        removeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int count = personList.size();
-                adapter.remove(personList.get(count - 1));
-//                personList.remove(0);
-                adapter.notifyDataSetChanged();
-            }
-        });
+        addButton.setOnClickListener(this);
+        resetButton.setOnClickListener(this);
+        removeButton.setOnClickListener(this);
 
     }
 
-    private void onAddClicked() {
+    @Override
+    public void onClick(View view) {
 
-        String name = name_editText.getText().toString();
-        int age;
-        String gender = gender_editText.getText().toString();
+        switch (view.getId()) {
+            case R.id.add_button:
 
-        String regexStr = "^[0-9]*$";
+                String name = name_editText.getText().toString();
+                int age;
+                String gender = gender_editText.getText().toString();
 
-        if (name.isEmpty() && gender.isEmpty() && age_editText.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Please enter Name, Age and Gender", Toast.LENGTH_LONG).show();
-        } else if (name.isEmpty()) {
-            Toast.makeText(this, "Please Enter Name", Toast.LENGTH_LONG).show();
-        } else if (age_editText.getText().toString().isEmpty() || !age_editText.getText().toString().trim().matches(regexStr)) {
-            Toast.makeText(this, "Please enter Age", Toast.LENGTH_LONG).show();
-        } else if (gender.isEmpty()) {
-            Toast.makeText(this, "Please enter Gender", Toast.LENGTH_SHORT).show();
-        } else {
-            age = Integer.parseInt(age_editText.getText().toString());
-            personList.add(new Person(name, age, gender));
-            adapter.notifyDataSetChanged();
-            Toast.makeText(this, "Person added successfully", Toast.LENGTH_LONG).show();
+                if (name.isEmpty() && gender.isEmpty() && age_editText.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Please enter Name, Age and Gender", Toast.LENGTH_LONG).show();
+                } else if (name.isEmpty()) {
+                    Toast.makeText(this, "Please Enter Name", Toast.LENGTH_LONG).show();
+                } else if (age_editText.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Please enter Age", Toast.LENGTH_LONG).show();
+                } else if (gender.isEmpty()) {
+                    Toast.makeText(this, "Please enter Gender", Toast.LENGTH_SHORT).show();
+                } else {
+                    age = Integer.parseInt(age_editText.getText().toString());
+                    personList.add(new Person(name, age, gender));
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(this, "Person added successfully", Toast.LENGTH_LONG).show();
+                }
+
+                break;
+            case R.id.reset_button:
+
+                name_editText.setText("");
+                age_editText.setText("");
+                gender_editText.setText("");
+
+                break;
+
+            case R.id.remove_button:
+
+                int count = personList.size();
+                adapter.remove(personList.get(count - 1));
+                adapter.notifyDataSetChanged();
+
+                break;
+
         }
-
-
     }
 
     @Override
