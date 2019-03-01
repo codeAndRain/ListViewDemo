@@ -1,22 +1,28 @@
 package com.training.listviewadapter;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends ListActivity {
+import java.util.ArrayList;
+import java.util.List;
 
-    private TextView selectedItemTextView;
+public class MainActivity extends ListActivity implements View.OnClickListener {
 
-    private static final String[] items = {"lorem", "ipsum", "dolor",
-            "sit", "amet",
-            "consectetuer", "adipiscing", "elit", "morbi", "vel",
-            "ligula", "vitae", "arcu", "aliquet", "mollis",
-            "etiam", "vel", "erat", "placerat", "ante",
-            "porttitor", "sodales", "pellentesque", "augue", "purus"};
+    private EditText name_editText;
+    private EditText age_editText;
+    private EditText gender_editText;
+    private Button addButton;
+    private Button resetButton;
+    private Button removeButton;
+
+    private List<Person> personList = new ArrayList<>();
+    private PersonAdapter adapter;
 
 
     @Override
@@ -24,15 +30,71 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        selectedItemTextView = findViewById(R.id.section_text_view);
+        name_editText = findViewById(R.id.name_Edit_Text);
+        age_editText = findViewById(R.id.age_Edit_Text);
+        gender_editText = findViewById(R.id.gender_Edit_Text);
+        addButton = findViewById(R.id.add_button);
+        resetButton = findViewById(R.id.reset_button);
+        removeButton = findViewById(R.id.remove_button);
 
-        setListAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
+        adapter = new PersonAdapter(this, personList);
+        setListAdapter(adapter);
+
+        addButton.setOnClickListener(this);
+        resetButton.setOnClickListener(this);
+        removeButton.setOnClickListener(this);
 
     }
 
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        String selectedItem = items[position];
-        selectedItemTextView.setText(selectedItem);
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.add_button:
+
+                String name = name_editText.getText().toString();
+                int age;
+                String gender = gender_editText.getText().toString();
+
+                if (name.isEmpty() && gender.isEmpty() && age_editText.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Please enter Name, Age and Gender", Toast.LENGTH_LONG).show();
+                } else if (name.isEmpty()) {
+                    Toast.makeText(this, "Please Enter Name", Toast.LENGTH_LONG).show();
+                } else if (age_editText.getText().toString().isEmpty()) {
+                    Toast.makeText(this, "Please enter Age", Toast.LENGTH_LONG).show();
+                } else if (gender.isEmpty()) {
+                    Toast.makeText(this, "Please enter Gender", Toast.LENGTH_SHORT).show();
+                } else {
+                    age = Integer.parseInt(age_editText.getText().toString());
+                    personList.add(new Person(name, age, gender));
+                    adapter.notifyDataSetChanged();
+                    Toast.makeText(this, "Person added successfully", Toast.LENGTH_LONG).show();
+                }
+
+                break;
+            case R.id.reset_button:
+
+                name_editText.setText("");
+                age_editText.setText("");
+                gender_editText.setText("");
+
+                break;
+
+            case R.id.remove_button:
+
+                int count = personList.size();
+                adapter.remove(personList.get(count - 1));
+                adapter.notifyDataSetChanged();
+
+                break;
+
+        }
     }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        Person person = personList.get(position);
+        Toast.makeText(this, person.getName() + " selected.", Toast.LENGTH_SHORT).show();
+    }
+
 }
